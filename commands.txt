@@ -1,0 +1,7 @@
+FORK MODE
+pm2 start server.js --name="fork" --watch -- -p 8080
+
+CLUSTER MODE
+pm2 start server.js --name="cluster" -i max  --watch -- 8080
+pm2 start server.js --name="cluster-b" -i 1 --watch -- -p 8081
+pm2 start server.js --name="cluster-c" -i 1 --watch -- -p 8082
