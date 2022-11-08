@@ -15,6 +15,7 @@ const args = parseArgs(process.argv.slice(2));
 
 require("dotenv").config();
 
+
 const { isValidPassword, createHash } = require("./utils/helpers.js");
 const appRouter = require("./routes/app.routes.js");
 const randomRouter = require("./routes/random.routes");
