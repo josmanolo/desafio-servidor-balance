@@ -1,6 +1,7 @@
 const express = require("express");
 const { Router } = express;
 const passport = require("passport");
+const { upload } = require("../utils/helpers");
 
 const authRouter = Router();
 
@@ -57,7 +58,7 @@ authRouter.post("/signup", passport.authenticate("signup", {
     successRedirect: "/login",
     failureRedirect: "/signup-error",
 }), (req, res) => {
-    console.log("yes")
+    console.log("yes");
 })
 
 authRouter.get("/login-error", (req, res) => {

@@ -15,7 +15,7 @@ const args = parseArgs(process.argv.slice(2));
 
 require("dotenv").config();
 
-const { isValidPassword, createHash } = require("./utils/helpers.js");
+const { isValidPassword, createHash, upload } = require("./utils/helpers.js");
 const appRouter = require("./routes/app.routes.js");
 const randomRouter = require("./routes/random.routes");
 
@@ -95,9 +95,9 @@ passport.use(
         async (req, username, password, done) => {
             try {
                 const user = await Users.find({ username });
-                const { name, email } = req.body;
+                const { name, email, age, tel } = req.body;
 
-                console.log(user);
+                console.log(req.body);
 
                 if (user.length > 0) {
                     console.log("User already exist");
@@ -109,6 +109,8 @@ passport.use(
                     password: createHash(password),
                     name,
                     email,
+                    age,
+                    tel
                 };
                 new Users(newUser).save();
                 return done(null, username);

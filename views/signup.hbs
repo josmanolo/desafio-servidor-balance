@@ -15,12 +15,15 @@
     <main>
         <h1>SIGNUP</h1>
         <hr>
-        <form action="/signup" method="post">
+        <form action="/signup" method="post" enctype='multipart/form-data'>
             <input type="text" id="name" name="name" placeholder="Ingresa tu Nombre">
             <input type="mail" id="email" name="email" placeholder="Ingresa tu email">
             <input type="text" id="username" name="username" placeholder="Ingresa tu usuario">
             <input type="password" name="password" id="password" placeholder="Contraseña">
-            <button type="submit" class="btn-chat">Resgistrar</button>
+            <input type="number" name="age" placeholder="Ingresa tu edad">
+            <input type="tel" name="tel" placeholder="Ingresa tu telefono">
+            <input type="file" name="avatar">
+            <button type="submit" class="btn-chat">Registrar</button>
         </form>
         <hr>
     </main>
