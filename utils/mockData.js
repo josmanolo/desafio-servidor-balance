@@ -5,10 +5,11 @@ const { commerce, image } = faker;
 
 const fakerRandomProducts = () => {
     const products = [];
-    [...Array(5)].forEach(() => {
+    [...Array(7)].forEach(() => {
         const product = {
             name: commerce.product(),
             price: commerce.price(),
+            description: commerce.productDescription(),
             image: image.image(),
         };
 

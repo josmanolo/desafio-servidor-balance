@@ -1,6 +1,6 @@
 const express = require("express");
 const { Router } = express;
-const { checkAuth } = require("../utils/helpers");
+const { checkAuth, sendSms, sendMail } = require("../utils/helpers");
 const fakerRandomProducts = require("../utils/mockData");
 const messagesContainer = require("../containers/containerMongo");
 
@@ -11,12 +11,13 @@ appRouter.get("/api/chat-products", checkAuth,  async (req, res) => {
     try {
         const getDBMessages = async () => {
             const messages = await Messages.getMessages();
+            console.log(req.session.passport);
             res.render("index", {
                 layout: "app",
                 list: {
                     products: fakerRandomProducts(),
                     messages: messages,
-                    username: req.session.username,
+                    user: req.session.passport.user,
                 },
             });
         };
@@ -34,4 +35,9 @@ appRouter.get("/profile", checkAuth, (req, res) => {
     res.render("profile", { layout: "profile" });
 });
 
+appRouter.post("/order", checkAuth, (req, res) => {
+    const { tel } = req.session.passport;
+    sendMail("",req.session.passport)
+    sendSms(tel);
+});
 module.exports = appRouter;

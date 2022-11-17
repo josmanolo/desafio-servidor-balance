@@ -54,7 +54,7 @@ authRouter.get("/signup", (req, res) => {
     res.render("index", { layout: "signup" });
 });
 
-authRouter.post("/signup", passport.authenticate("signup", {
+authRouter.post("/signup", upload.single('avatar'),  passport.authenticate("signup", {
     successRedirect: "/login",
     failureRedirect: "/signup-error",
 }), (req, res) => {

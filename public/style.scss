@@ -1,16 +1,88 @@
+body,
+html,
+body,
+p,
+span,
+div,
+article,
+section,
+main,
+header,
+h1,
+h2,
+h3,
+form {
+    margin: 0;
+    padding: 0;
+}
+
 body {
     width: 100%;
     height: 100%;
     background-color: #f2f2f2;
-    font-family: 'Figtree', Arial, Helvetica, sans-serif;
+    font-family: "Figtree", Arial, Helvetica, sans-serif;
+    color: #212121;
 }
 a {
     text-decoration: none;
 }
 
+header {
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    box-shadow: 0px 5px 40px -15px rgb(0 0 0 / 25%);
+    display: flex;
+    justify-content: space-between;
+
+    > img {
+        width: 80px;
+    }
+
+    article {
+        width: 130px;
+        display: flex;
+        justify-content: space-between;
+
+        section {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            align-items: center;
+
+            img {
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                display: inline-block;
+            }
+
+            h2 {
+                font-size: 20px;
+            }
+        }
+
+        form {
+            display: flex;
+            align-items: center;
+        }
+
+        .logout-header {
+            appearance: none;
+            background-image: url("logout.png");
+            border: none;
+            width: 23px;
+            height: 23px;
+            background-size: 100%;
+            cursor: pointer;
+        }
+    }
+}
+
 main {
-    width: 400px;
+    width: 100%;
     margin: 0 auto;
+    padding: 40px 0;
 
     &.table {
         width: 700px;
@@ -24,15 +96,17 @@ main {
         border: none;
         width: 100%;
         box-sizing: border-box;
-        font-family: 'Figtree', Arial, Helvetica, sans-serif;
+        font-family: "Figtree", Arial, Helvetica, sans-serif;
     }
 
-    input[type='button'], .btn-chat, .logout {
+    input[type="button"],
+    .btn-chat,
+    .logout {
         width: 100%;
         display: block;
         border: none;
         padding: 12px 0;
-        font-family: 'Figtree', Arial, Helvetica, sans-serif;
+        font-family: "Figtree", Arial, Helvetica, sans-serif;
         font-weight: 700;
         background-color: #3bcfe2;
         color: #fff;
@@ -40,10 +114,102 @@ main {
         font-size: 18px;
         margin-top: 30px;
     }
+
+    .products {
+        display: flex;
+        width: 95%;
+        margin: 0 auto;
+        flex-wrap: wrap;
+        gap: 5%;
+
+        section {
+            width: 21%;
+            margin-bottom: 40px;
+            text-align: center;
+
+            img {
+                width: 70%;
+            }
+
+            p {
+                font-size: 20px;
+                margin-top: 5px;
+            }
+            p:nth-child(3) {
+                font-size: 13px;
+                height: 32px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                margin: 5px 0;
+            }
+
+            p:nth-child(4) {
+                font-size: 18px;
+                font-weight: 600;
+                color: #ff7000;
+            }
+
+            button {
+                width: 100%;
+                display: block;
+                border: none;
+                padding: 12px 0;
+                font-family: "Figtree", Arial, Helvetica, sans-serif;
+                font-weight: 600;
+                background-color: #ff7000;
+                color: #fff;
+                cursor: pointer;
+                font-size: 15px;
+                margin-top: 10px;
+                border-radius: 30px;
+            }
+        }
+    }
+
+    .cart {
+        width: 400px;
+        height: 100%;
+        position: absolute;
+        right: 0;
+        top: 115px;
+        background-color: #fff;
+        padding: 30px;
+        box-sizing: border-box;
+
+        h2 {
+            width: 100%;
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            img {
+                width: 20%;
+            }
+        }
+
+        button {
+            width: 100%;
+            display: block;
+            border: none;
+            padding: 12px 0;
+            font-family: "Figtree", Arial, Helvetica, sans-serif;
+            font-weight: 600;
+            background-color: #ff7000;
+            color: #fff;
+            cursor: pointer;
+            font-size: 15px;
+            margin-top: 10px;
+            border-radius: 30px;
+        }
+    }
 }
 
-
-form {
+.login-form {
     display: flex;
     gap: 30px;
     flex-direction: column;
@@ -59,15 +225,14 @@ form {
             margin-bottom: 6px;
             font-weight: 500;
         }
-
-        
     }
 }
 
 table {
-    td, th {
+    td,
+    th {
         border-bottom: 1px solid rgb(190, 190, 190);
-        font-family: 'Figtree', Arial, Helvetica, sans-serif;
+        font-family: "Figtree", Arial, Helvetica, sans-serif;
         padding: 20px;
         background-color: #fff;
     }
