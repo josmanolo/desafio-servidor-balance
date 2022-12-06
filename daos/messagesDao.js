@@ -1,9 +1,10 @@
 const Messages = require("../models/messages.model");
 const { connectDB } = require("../utils/helpers");
 
-connectDB();
-class ContainerMongo {
-    constructor() {}
+class MessagesDao{
+    constructor() {
+        connectDB();
+    }
 
     async getMessages() {
         try {
@@ -24,4 +25,4 @@ class ContainerMongo {
     }
 }
 
-module.exports = ContainerMongo;
+module.exports = MessagesDao;

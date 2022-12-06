@@ -1,27 +1,14 @@
 const express = require("express");
 const { Router } = express;
 const { checkAuth, sendSms, sendMail } = require("../utils/helpers");
-const fakerRandomProducts = require("../utils/mockData");
-const messagesContainer = require("../containers/containerMongo");
+const MessagesController = require("../controllers/messages.controllers");
 
 const appRouter = Router();
-const Messages = new messagesContainer();
+const Messages = new MessagesController();
 
 appRouter.get("/api/chat-products", checkAuth,  async (req, res) => {
     try {
-        const getDBMessages = async () => {
-            const messages = await Messages.getMessages();
-            console.log(req.session.passport);
-            res.render("index", {
-                layout: "app",
-                list: {
-                    products: fakerRandomProducts(),
-                    messages: messages,
-                    user: req.session.passport.user,
-                },
-            });
-        };
-        getDBMessages();
+        Messages.getMessages(req, res);
     } catch (e) {
         res.status(500).json({
             success: false,
